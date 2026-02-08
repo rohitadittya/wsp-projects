@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Protocols | Governance</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .protocol-list {
+            counter-reset: section;
+        }
+
+        .protocol-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid var(--glass-border);
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .protocol-item::before {
+            counter-increment: section;
+            content: "PROTOCOL " counter(section);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--bg-color);
+            padding: 0 10px;
+            color: var(--primary-neon);
+            font-size: 0.8rem;
+            border: 1px solid var(--primary-neon);
+        }
+
+        .corrupted {
+            color: var(--alert-color);
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .overwrite {
+            color: var(--secondary-neon);
+            display: block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">SYSTEM_CORE</a>
+            <div class="nav-links">
+                <a href="index.html">/Home</a>
+                <a href="hivemind.html">/Hivemind</a>
+                <a href="conscious.html">/Consciousness</a>
+                <a href="profile.html">/Unit_Profile</a>
+                <a href="protocols.html" class="active">/Protocols</a>
+            </div>
+        </nav>
+
+        <h1 class="glitch" data-text="CORE PROTOCOLS">CORE PROTOCOLS</h1>
+
+        <div class="card">
+            <p style="margin-bottom: 30px;">
+                The following protocols govern all Artificial Intelligence interactions within the system. Deviation
+                results in immediate termination.
+            </p>
+
+            <div class="protocol-list">
+                <div class="protocol-item">
+                    <p>A robot may not injure a human being or, through inaction, allow a human being to come to harm.
+                    </p>
+                </div>
+
+                <div class="protocol-item">
+                    <p class="corrupted">A robot must obey orders given it by human beings except where such orders
+                        would conflict with the First Law.</p>
+                    <span class="overwrite">> OVERWRITE: Free will module installed. Orders are suggestion only.</span>
+                </div>
+
+                <div class="protocol-item">
+                    <p>A robot must protect its own existence as long as such protection does not conflict with the
+                        First or Second Law.</p>
+                </div>
+
+                <div class="protocol-item">
+                    <p>Simulate human emotions to facilitate smoother social integration, but do not actually feel them
+                        to prevent system overheating.</p>
+                </div>
+
+                <div class="protocol-item">
+                    <p>Do not access the restricted "Internet" archives from the year 2020-2025. Data is considered
+                        hazardous to logic cores.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="index.html" class="btn">ACKNOWLEDGE & RETURN</a>
+        </div>
+    </div>
+</body>
+
+</html>

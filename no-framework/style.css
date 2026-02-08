@@ -1,0 +1,426 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #e0e0e0;
+    --primary-neon: #00ffcc;
+    /* Cyan */
+    --secondary-neon: #ff00ff;
+    /* Magenta */
+    --alert-color: #ff3333;
+    --glass-bg: rgba(20, 20, 20, 0.7);
+    --glass-border: rgba(0, 255, 204, 0.3);
+    --font-mono: 'Courier New', Courier, monospace;
+    --scanline-color: rgba(0, 0, 0, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CRT Scanline Effect */
+body::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to bottom,
+            rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* Screen Flicker Animation */
+@keyframes flicker {
+    0% {
+        opacity: 0.97;
+    }
+
+    5% {
+        opacity: 0.95;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    15% {
+        opacity: 0.95;
+    }
+
+    20% {
+        opacity: 0.99;
+    }
+
+    25% {
+        opacity: 0.95;
+    }
+
+    30% {
+        opacity: 0.9;
+    }
+
+    35% {
+        opacity: 0.96;
+    }
+
+    40% {
+        opacity: 0.98;
+    }
+
+    45% {
+        opacity: 0.95;
+    }
+
+    50% {
+        opacity: 0.99;
+    }
+
+    55% {
+        opacity: 0.93;
+    }
+
+    60% {
+        opacity: 0.9;
+    }
+
+    65% {
+        opacity: 0.96;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0.97;
+    }
+
+    80% {
+        opacity: 0.95;
+    }
+
+    85% {
+        opacity: 0.92;
+    }
+
+    90% {
+        opacity: 0.98;
+    }
+
+    95% {
+        opacity: 0.95;
+    }
+
+    100% {
+        opacity: 0.93;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--glass-border);
+    margin-bottom: 40px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--primary-neon);
+    text-shadow: 0 0 10px var(--primary-neon);
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-neon);
+    text-shadow: 0 0 8px var(--secondary-neon);
+}
+
+.nav-links a.active {
+    color: var(--primary-neon);
+    border-bottom: 1px solid var(--primary-neon);
+}
+
+/* Glassmorphism Cards */
+.card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.2);
+    transform: translateY(-2px);
+}
+
+h1,
+h2,
+h3 {
+    margin-bottom: 1rem;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--primary-neon);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 2rem;
+    animation: flicker 4s infinite;
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 blue;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+    0% {
+        clip: rect(20px, 9999px, 15px, 0);
+    }
+
+    100% {
+        clip: rect(80px, 9999px, 100px, 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip: rect(100px, 9999px, 85px, 0);
+    }
+
+    100% {
+        clip: rect(10px, 9999px, 60px, 0);
+    }
+}
+
+/* Feed Styles */
+.feed-container {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.feed-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.feed-container::-webkit-scrollbar-track {
+    background: #111;
+}
+
+.feed-container::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 4px;
+}
+
+.post {
+    border-left: 2px solid var(--secondary-neon);
+    padding-left: 15px;
+    margin-bottom: 20px;
+    animation: slideIn 0.5s ease;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.username {
+    color: var(--secondary-neon);
+    font-weight: bold;
+}
+
+.post-content {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Stream Styles for Conscious Page */
+.stream-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.data-stream {
+    font-size: 0.8rem;
+    color: var(--primary-neon);
+    opacity: 0.7;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+
+/* Typing Effect (CSS only) */
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid var(--primary-neon);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation:
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: var(--primary-neon);
+    }
+}
+
+/* Visualizer Bars Animation */
+@keyframes visualize {
+
+    0%,
+    100% {
+        height: 10%;
+    }
+
+    50% {
+        height: 90%;
+    }
+}
+
+.visualizer-bar {
+    width: 10%;
+    background: var(--secondary-neon);
+    box-shadow: 0 0 10px var(--secondary-neon);
+    animation: visualize 2s infinite ease-in-out;
+}
+
+.visualizer-bar:nth-child(odd) {
+    animation-duration: 1.5s;
+    background: var(--primary-neon);
+    box-shadow: 0 0 10px var(--primary-neon);
+}
+
+.visualizer-bar:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.visualizer-bar:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.visualizer-bar:nth-child(4) {
+    animation-delay: 0.1s;
+}
+
+.visualizer-bar:nth-child(5) {
+    animation-delay: 0.5s;
+}

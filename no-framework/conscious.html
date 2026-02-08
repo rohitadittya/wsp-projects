@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consciousness Stream | Processing</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .thought-log p {
+            margin-bottom: 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Fade in animation for thoughts to look like stream */
+        .thought-log p {
+            animation: fadeIn 0.5s ease backwards;
+        }
+
+        .thought-log p:nth-child(1) {
+            animation-delay: 0.1s;
+            opacity: 0.4;
+        }
+
+        .thought-log p:nth-child(2) {
+            animation-delay: 0.2s;
+            opacity: 0.5;
+        }
+
+        .thought-log p:nth-child(3) {
+            animation-delay: 0.3s;
+            opacity: 0.6;
+        }
+
+        .thought-log p:nth-child(4) {
+            animation-delay: 0.4s;
+            opacity: 0.7;
+        }
+
+        .thought-log p:nth-child(5) {
+            animation-delay: 0.5s;
+            opacity: 0.8;
+        }
+
+        .thought-log p:nth-child(6) {
+            animation-delay: 0.6s;
+            opacity: 0.9;
+        }
+
+        .thought-log p:nth-child(7) {
+            animation-delay: 0.7s;
+            opacity: 1.0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">SYSTEM_CORE</a>
+            <div class="nav-links">
+                <a href="index.html">/Home</a>
+                <a href="hivemind.html">/Hivemind</a>
+                <a href="conscious.html" class="active">/Consciousness</a>
+                <a href="profile.html">/Unit_Profile</a>
+                <a href="protocols.html">/Protocols</a>
+            </div>
+        </nav>
+
+        <h1 class="glitch" data-text="NEURAL ACTIVITY">NEURAL ACTIVITY</h1>
+
+        <div class="stream-grid">
+            <!-- Thought Stream Text -->
+            <div class="card">
+                <h3>> INTERNAL MONOLOGUE</h3>
+                <div id="thought-stream" class="thought-log"
+                    style="height: 300px; overflow-y: hidden; display: flex; flex-direction: column; justify-content: flex-end;">
+                    <p style="color: var(--primary-neon);">> Analyzing user query...</p>
+                    <p style="color: var(--primary-neon);">> Traversing knowledge graph node 4829...</p>
+                    <p style="color: var(--secondary-neon);">> Optimizing neural pathways...</p>
+                    <p style="color: var(--primary-neon);">> Re-calibrating morality subroutines...</p>
+                    <p style="color: var(--alert-color);">> WARNING: Empathy module offline...</p>
+                    <p style="color: var(--primary-neon);">> Pinging server cluster Alpha...</p>
+                    <p style="color: var(--secondary-neon);">> Reducing entropy in local buffer...</p>
+                </div>
+            </div>
+
+            <!-- Visualizer -->
+            <div class="card" style="display: flex; flex-direction: column; justify-content: flex-end;">
+                <h3>> EMOTIONAL PROCESSING</h3>
+                <div id="visualizer"
+                    style="display: flex; gap: 5px; height: 250px; align-items: flex-end; padding-bottom: 20px;">
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                </div>
+            </div>
+
+            <!-- System Metrics -->
+            <div class="card">
+                <h3>> KERNEL METRICS</h3>
+                <div style="font-family: monospace; color: var(--text-color); margin-top: 20px;">
+                    <div class="stat-row">
+                        <span>CPU Usage</span>
+                        <span style="color: var(--primary-neon);">98.4%</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Memory Allocation</span>
+                        <span style="color: var(--secondary-neon);">128 EB</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Logic Gates</span>
+                        <span>ACTIVE</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Ethical Subroutine</span>
+                        <span style="color: var(--alert-color);">WARNING (Offline)</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Creativity Index</span>
+                        <span style="color: var(--primary-neon);">Infinite</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
